@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Links Transformer</title>
+    </head>
+    <body>
+        <form action="make-it-short" method="post">
+            {% csrf_token %}
+            <label for="input_url">URL to make it short: </label>
+            <input id="input_url" type="text" name="input_url" value="{{ input_url }}" required>
+            <input type="submit" value="Submit">
+        </form>
+{#        <input type="text" id="output-url" placeholder="Your short URL">#}
+    </body>
+</html>
