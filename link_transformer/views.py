@@ -64,7 +64,11 @@ class ShortURLOutput(View):
             user_link = UserLink(url_id=url, user_id=user, short_url=short_url, url_hash=url_hash)
             user_link.save()
 
-        return render(request, 'link_transformer/short-url.html', {"short_url": user_link.short_url})
+        # collect amount of clicks on a short link
+        clicks = LinkClick.objects.filter(user_link=user_link).count()
+        return render(
+            request, 'link_transformer/short-url.html', {"short_url": user_link.short_url, "link_clicks": clicks}
+        )
 
 
 class ShortURLDispatcher(RedirectView):
