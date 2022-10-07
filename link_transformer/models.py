@@ -13,6 +13,7 @@ class UserLink(models.Model):
     url_id = models.ForeignKey(URL, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     short_url = models.CharField(max_length=30, unique=True)
+    url_hash = models.CharField(max_length=15, unique=True)
 
     class Meta:
         constraints = [
