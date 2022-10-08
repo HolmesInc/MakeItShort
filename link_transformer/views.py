@@ -1,12 +1,12 @@
 import hashlib
 import uuid
 from django.views.generic import TemplateView, View, RedirectView
-from django.http.response import HttpResponseRedirect, HttpResponse
+from django.http.response import HttpResponseRedirect
 from django.views.defaults import bad_request, page_not_found
 from django.shortcuts import render
 from .forms import FullURLInputForm, URLHash
 from .models import URL, User, UserLink, LinkClick
-from .handlers import collect_user_data, create_user_hash
+from .handlers import create_user_hash
 
 
 class FullURLInput(TemplateView):
