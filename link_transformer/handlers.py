@@ -14,3 +14,13 @@ def collect_user_data(meta: dict) -> Union[str, None]:
     else:
         user_ip = meta.get('REMOTE_ADDR')
     return user_ip
+
+
+def create_user_hash(meta: dict) -> str:
+    """
+    Create user hash string based on user meta data
+    :param meta: request metadata
+    :return hashed user data
+    """
+    user_data = collect_user_data(meta)
+    return hashlib.sha224(user_data.encode()).hexdigest()
