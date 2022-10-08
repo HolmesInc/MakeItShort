@@ -12,4 +12,4 @@ class URLHash(forms.Form):
     """
     Validate URL hash
     """
-    url_hash = forms.CharField(label='url_hash', max_length=10)
+    url_hash = forms.CharField(label='url_hash', min_length=9, max_length=10)
